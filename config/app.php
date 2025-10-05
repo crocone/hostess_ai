@@ -1,0 +1,1 @@
+<?php return ['name'=>'RestaurantAPI','timezone'=>'Europe/Moscow'];
