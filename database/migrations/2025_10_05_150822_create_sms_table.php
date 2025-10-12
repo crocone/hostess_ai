@@ -23,6 +23,12 @@ return new class extends Migration {
             $table->index(['phone', 'type']);
             $table->index(['email', 'type']);
         });
+
+        Schema::table('users', function (Blueprint $table) {
+            $table->integer('phone')->after('email');
+            $table->string('name')->nullable()->change();
+            $table->string('email')->nullable()->change();
+        });
     }
 
     public function down(): void
