@@ -25,7 +25,7 @@ return new class extends Migration {
         });
 
         Schema::table('users', function (Blueprint $table) {
-            $table->integer('phone')->after('email');
+            $table->integer('phone')->after('email')->nullable();
             $table->string('name')->nullable()->change();
             $table->string('email')->nullable()->change();
         });
