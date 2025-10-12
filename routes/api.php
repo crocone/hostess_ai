@@ -35,7 +35,7 @@ Route::middleware(OptionalAuthSanctum::class)->group(function () {
 Route::middleware('auth:sanctum')->group(function () {
     Route::post('/auth/logout', [AuthController::class, 'logout']);
     Route::get('/me', [UserController::class, 'index']);
-    Route::get('/address', [HelpersController::class, 'address']);
+    Route::post('/address', [HelpersController::class, 'address']);
     Route::post('/accept', [UserController::class, 'accept']);
     Route::post('/logout', [AuthController::class, 'logout']);
     // Restaurants
