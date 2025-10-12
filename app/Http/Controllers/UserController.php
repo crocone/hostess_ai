@@ -18,8 +18,6 @@ class UserController extends Controller
         $data = $request->validate([
             'subscribe' => 'required|boolean',
             'user_name' => 'required|string',
-            'company_id' => 'required|integer',
-            'company_name' => 'required|string',
         ]);
         $request->user()->update([
             'is_subscribed' => $data['subscribe'],
