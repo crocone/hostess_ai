@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CodeController;
+use App\Http\Controllers\HelpersController;
 use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\UserController;
 use App\Http\Middleware\OptionalAuthSanctum;
@@ -34,6 +35,7 @@ Route::middleware(OptionalAuthSanctum::class)->group(function () {
 Route::middleware('auth:sanctum')->group(function () {
     Route::post('/auth/logout', [AuthController::class, 'logout']);
     Route::get('/me', [UserController::class, 'index']);
+    Route::get('/address', [HelpersController::class, 'address']);
     Route::post('/accept', [UserController::class, 'accept']);
     Route::post('/logout', [AuthController::class, 'logout']);
     // Restaurants

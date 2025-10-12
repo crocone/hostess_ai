@@ -2,6 +2,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Restaurant;
+use Illuminate\Support\Str;
 
 class RestaurantController extends Controller
 {
@@ -11,10 +12,10 @@ class RestaurantController extends Controller
     public function store(Request $r) {
         $data = $r->validate([
             'name'=>'required',
-            'slug'=>'required|alpha_dash|unique:restaurants',
             'phone'=>'nullable',
             'timezone'=>'nullable',
         ]);
+        $data['slug'] = Str::slug($data['name']);
         $restaurant = Restaurant::create($data);
         $r->user()->restaurants()->attach($restaurant->id, ['role'=>'owner']);
         return response()->json($restaurant, 201);
