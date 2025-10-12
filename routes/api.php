@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CodeController;
 use App\Http\Controllers\ReservationController;
+use App\Http\Controllers\UserController;
 use App\Http\Middleware\OptionalAuthSanctum;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;

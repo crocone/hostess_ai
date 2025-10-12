@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Http\Resources\UserResource;
-use App\Models\Company;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -27,9 +26,6 @@ class UserController extends Controller
             'is_accepted' => true,
             'name' => $data['user_name']
         ]);
-
-        $company = Company::find($data['company_id']);
-        $company->update(['name' => $data['company_name']]);
 
         return new UserResource($request->user());
     }
