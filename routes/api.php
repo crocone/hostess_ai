@@ -32,7 +32,9 @@ Route::middleware(OptionalAuthSanctum::class)->group(function () {
 
 Route::middleware('auth:sanctum')->group(function () {
     Route::post('/auth/logout', [AuthController::class, 'logout']);
-
+    Route::get('/me', [UserController::class, 'index']);
+    Route::post('/accept', [UserController::class, 'accept']);
+    Route::post('/logout', [AuthController::class, 'logout']);
     // Restaurants
     Route::get('/restaurants', [RestaurantController::class, 'index']);
     Route::post('/restaurants', [RestaurantController::class, 'store']);
