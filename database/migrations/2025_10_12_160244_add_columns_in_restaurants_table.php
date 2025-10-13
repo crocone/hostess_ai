@@ -9,6 +9,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('restaurants', function (Blueprint $table) {
+            $table->string('email', 54)->nullable();
+            $table->string('phone', 54)->nullable();
             $table->string('country', 54)->nullable();
             $table->string('country_iso_code', 5)->nullable();
             $table->string('region', 124)->nullable();

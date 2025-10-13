@@ -12,8 +12,10 @@ class RestaurantController extends Controller
     public function store(Request $r) {
         $data = $r->validate([
             'name'=>'required',
-            'phone'=>'nullable',
-            'timezone'=>'nullable',
+            'email'=>'nullable|string',
+            'phone'=>'nullable|string',
+            'address'=>'required|string',
+            'attach' => 'nullable|file|max:12288|mimes:jpg,png',
         ]);
         $data['slug'] = Str::slug($data['name']);
         $restaurant = Restaurant::create($data);
